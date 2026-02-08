@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -9,17 +9,12 @@ class Roles(models.Model):
     def __str__(self):
         return self.role_name
 
-
-class User(models.Model):
-    name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    phone_number = models.IntegerField()
-    email = models.CharField(max_length=50)
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     role = models.ForeignKey(Roles, on_delete=models.CASCADE)
-
+    phone_number = models.CharField(max_length=20, blank=True)
     def __str__(self):
-        return f"{self.name} {self.last_name}"
-
+        return self.user.username
 
 class Language(models.Model):
     language_name = models.CharField(max_length=50)

@@ -15,6 +15,7 @@ urlpatterns = [
     path('users/read/<int:pk>/', user_controller.getUser),
     path('users/update/<int:pk>/', user_controller.updateUser),
     path('users/delete/<int:pk>/', user_controller.deleteUser),
+    path('users/login/', user_controller.loginUser),
 
     # ROLE URLs
     path('roles/', role_controller.getRoles),
