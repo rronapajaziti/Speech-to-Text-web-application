@@ -9,7 +9,6 @@ from ..serializers import AudioFilesSerializer
 logger = logging.getLogger(__name__)
 
 
-# get all audio files
 @api_view(['GET'])
 def getAudioFiles(request):
     audio_files = AudioFiles.objects.all()
@@ -17,7 +16,6 @@ def getAudioFiles(request):
     return Response(serializer.data)
 
 
-# get single audio file
 @api_view(['GET'])
 def getAudioFile(request, pk):
     try:
@@ -29,7 +27,6 @@ def getAudioFile(request, pk):
     return Response(serializer.data)
 
 
-# add audio file
 @api_view(['POST'])
 def addAudioFile(request):
     serializer = AudioFilesSerializer(data=request.data)
@@ -38,7 +35,6 @@ def addAudioFile(request):
     return Response(serializer.data)
 
 
-# update audio file
 @api_view(['PUT'])
 def updateAudioFile(request, pk):
     try:
@@ -52,7 +48,6 @@ def updateAudioFile(request, pk):
     return Response(serializer.data)
 
 
-# delete audio file
 @api_view(['DELETE'])
 def deleteAudioFile(request, pk):
     try:

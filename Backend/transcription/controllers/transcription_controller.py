@@ -9,7 +9,6 @@ from ..serializers import TranscriptionSerializer
 logger = logging.getLogger(__name__)
 
 
-# get all transcriptions
 @api_view(['GET'])
 def getTranscriptions(request):
     transcriptions = Transcription.objects.all()
@@ -17,7 +16,6 @@ def getTranscriptions(request):
     return Response(serializer.data)
 
 
-# get single transcription
 @api_view(['GET'])
 def getTranscription(request, pk):
     try:
@@ -29,7 +27,6 @@ def getTranscription(request, pk):
     return Response(serializer.data)
 
 
-# add transcription
 @api_view(['POST'])
 def addTranscription(request):
     serializer = TranscriptionSerializer(data=request.data)
@@ -38,7 +35,6 @@ def addTranscription(request):
     return Response(serializer.data)
 
 
-# update transcription
 @api_view(['PUT'])
 def updateTranscription(request, pk):
     try:
@@ -52,7 +48,6 @@ def updateTranscription(request, pk):
     return Response(serializer.data)
 
 
-# delete transcription
 @api_view(['DELETE'])
 def deleteTranscription(request, pk):
     try:

@@ -9,7 +9,6 @@ from ..serializers import LanguageSerializer
 logger = logging.getLogger(__name__)
 
 
-# get all languages
 @api_view(['GET'])
 def getLanguages(request):
     languages = Language.objects.all()
@@ -17,7 +16,6 @@ def getLanguages(request):
     return Response(serializer.data)
 
 
-# get single language
 @api_view(['GET'])
 def getLanguage(request, pk):
     try:
@@ -29,7 +27,6 @@ def getLanguage(request, pk):
     return Response(serializer.data)
 
 
-# add language
 @api_view(['POST'])
 def addLanguage(request):
     serializer = LanguageSerializer(data=request.data)
@@ -38,7 +35,6 @@ def addLanguage(request):
     return Response(serializer.data)
 
 
-# update language
 @api_view(['PUT'])
 def updateLanguage(request, pk):
     try:
@@ -52,7 +48,6 @@ def updateLanguage(request, pk):
     return Response(serializer.data)
 
 
-# delete language
 @api_view(['DELETE'])
 def deleteLanguage(request, pk):
     try:

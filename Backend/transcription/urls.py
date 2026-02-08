@@ -51,4 +51,3 @@ urlpatterns = [
     path('evaluation-results/update/<int:pk>/', evaluation_results_controller.updateEvaluationResult),
     path('evaluation-results/delete/<int:pk>/', evaluation_results_controller.deleteEvaluationResult),
 ]
-

@@ -9,7 +9,6 @@ from ..serializers import EvaluationResultsSerializer
 logger = logging.getLogger(__name__)
 
 
-# get all evaluation results
 @api_view(['GET'])
 def getEvaluationResults(request):
     evaluation_results = EvaluationResults.objects.all()
@@ -17,7 +16,6 @@ def getEvaluationResults(request):
     return Response(serializer.data)
 
 
-# get single evaluation result
 @api_view(['GET'])
 def getEvaluationResult(request, pk):
     try:
@@ -29,7 +27,6 @@ def getEvaluationResult(request, pk):
     return Response(serializer.data)
 
 
-# add evaluation result
 @api_view(['POST'])
 def addEvaluationResult(request):
     serializer = EvaluationResultsSerializer(data=request.data)
@@ -38,7 +35,6 @@ def addEvaluationResult(request):
     return Response(serializer.data)
 
 
-# update evaluation result
 @api_view(['PUT'])
 def updateEvaluationResult(request, pk):
     try:
@@ -52,7 +48,6 @@ def updateEvaluationResult(request, pk):
     return Response(serializer.data)
 
 
-# delete evaluation result
 @api_view(['DELETE'])
 def deleteEvaluationResult(request, pk):
     try:
